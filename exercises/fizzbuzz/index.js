@@ -12,6 +12,12 @@
 //   4
 //   buzz
 
-function fizzBuzz(n) {}
+function fizzBuzz(n) {
+    console.log(n);
+
+    
+}
+
+fizzBuzz('sfsdf');
 
 module.exports = fizzBuzz;

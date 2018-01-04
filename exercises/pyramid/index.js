@@ -14,6 +14,33 @@
 //       ' ### '
 //       '#####'
 
-function pyramid(n) {}
+function pyramid(n) {
+    printRows(n, 0);
+}
+
+function printRows(n, rowIndex) {
+    if (rowIndex === n) {
+        return;
+    }
+    let row = '';
+    let spaces = '';
+    row = repeatStringNtimes('#', rowIndex * 2 + 1);
+    spaces = repeatStringNtimes(' ', n - rowIndex - 1);
+    console.log(spaces + row + spaces);
+
+    printRows(n, rowIndex + 1);
+}
+
+function repeatStringNtimes(str, n) {
+    let repeatedString = '';
+
+    while (n > 0) {
+        repeatedString += str;
+        --n;
+    }
+    return repeatedString;
+}
+
+pyramid(5);
 
 module.exports = pyramid;

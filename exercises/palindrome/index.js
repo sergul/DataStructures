@@ -7,6 +7,20 @@
 //   palindrome("abba") === true
 //   palindrome("abcdefg") === false
 
-function palindrome(str) {}
+function palindrome(str) {
+    var lengthOfHalf = parseInt(str.length) / 2;
+    var length = str.length - 1;
+    let isStringPolindrome = true;
+    let arr = str.split('');
+    for (let i = 0; i < lengthOfHalf; ++i) {
+        if (arr[i] !== arr[length - i]) {
+            isStringPolindrome = false;
+            break;
+        }
+    }
+    return isStringPolindrome;
+}
+
+//palindrome('abba');
 
 module.exports = palindrome;
