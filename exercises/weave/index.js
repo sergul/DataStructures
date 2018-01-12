@@ -1,3 +1,4 @@
+//import Queue from './queue';
 // --- Directions
 // 1) Complete the task in weave/queue.js
 // 2) Implement the 'weave' function.  Weave
@@ -24,6 +25,35 @@
 
 const Queue = require('./queue');
 
-function weave(sourceOne, sourceTwo) {}
+function weave(sourceOne, sourceTwo) {
+    let mixedQueue = new Queue();
+    
+    while (true) {
+        let itemFromSrcTwo = sourceTwo.peek();
+        let itemFromSrcOne = sourceOne.peek();
+        if (!itemFromSrcTwo && !itemFromSrcOne) {
+            break;
+        }
+        mixedQueue.add(itemFromSrcOne);
+        mixedQueue.add(itemFromSrcTwo);
+        sourceTwo.remove();
+        sourceOne.remove();
+    }
+    return mixedQueue;
+}
+
+const q1 = new Queue();
+q1.add(1);
+q1.add(2);
+
+const q2 = new Queue();
+q2.add('Hi');
+q2.add('There');
+
+const q = weave(q1, q2);
+q.remove();
+q.remove();
+q.remove();
+q.remove();
 
 module.exports = weave;
