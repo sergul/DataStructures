@@ -46,16 +46,12 @@ function rotateImage(m) {
             poses.first.column ++;
         }
     }
-
     return m;
 }
 
-let matrix = generateInput(5);
-
-let copy = copyArray(matrix);
-rotateImage(matrix);
-print(matrix);
-print(copy);
+let matrix = generateInput(10000);
+let res = rotateImage(matrix);
+print(res);
 
 function generateInput(n) {
     let matrix = [];
@@ -74,15 +70,6 @@ function print(arr) {
         console.log(row.join(' '));
     }
     console.log('---------------');
-}
-
-function copyArray(arr) {
-    var len = arr.length,
-    copy = new Array(len);
-    for (var i=0; i<len; ++i) {
-        copy[i] = arr[i].slice(0);
-    }
-    return copy;
 }
 
 function Positions(first, second, third, fourth) {
