@@ -36,5 +36,5 @@ function getMapObj(str) {
     return srcObj;
 }
 
-//anagrams('rail safety', 'fairy tales');
+anagrams('rail safety', 'fairy tales');
 module.exports = anagrams;
