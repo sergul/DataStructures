@@ -1,5 +1,4 @@
 function rotateImage(m) {
-    const n = m.length * m.length;
     let backups = {secondValue: 0, thirdValue: 0, fourthValue: 0};
     let poses = new Positions(new Position(0, 0), new Position(0, 0), new Position(0, 0), new Position(0, 0));
     let stepSize = m.length - 1;
@@ -45,6 +44,7 @@ function rotateImage(m) {
         } else {
             poses.first.column ++;
         }
+        numSteps++;
     }
     return m;
 }
