@@ -12,13 +12,10 @@ function fib(n) {
     if (n < 2) {
         return n;
     }
-    if (n > 1 && n < 5) {
-        return n - 1;
-    }
-    let first = 2;
-    let second = 3;
-    let sum = 0;
-    for (let i = 4; i < n; ++i) {
+    let first = 0;
+    let second = 1;
+    let sum = first + second;
+    for (let i = 1; i < n; ++i) {
         sum = first + second;
         first = second;
         second = sum;
@@ -26,6 +23,6 @@ function fib(n) {
     return sum;
 }
 
-//fib(6);
+console.log(fib(8));
 
 module.exports = fib;
