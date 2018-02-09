@@ -16,23 +16,4 @@ function sortAnagrams(arr) {
         }
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 sortAnagrams(['akc', 'kbc', 'kca', 'cbk']);
