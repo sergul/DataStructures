@@ -18,6 +18,7 @@ test('chunk divides an array of 3 elements with chunk size 1', () => {
   expect(chunked).toEqual([[1], [2], [3]]);
 });
 
+
 test('chunk divides an array of 5 elements with chunk size 3', () => {
   const arr = [1, 2, 3, 4, 5];
   const chunked = chunk(arr, 3);

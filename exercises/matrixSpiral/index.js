@@ -27,9 +27,8 @@ function matrix(n) {
     const numElements = n * n;
     
     for (var i = 0; i < numElements; ++i) {
-        
-
         element = {value: i + 1, row: rowIndex, column: colIndex};
+        console.log(element.value);
         matrix.push(element);
 
         if (direction === 'leftToRight') {
