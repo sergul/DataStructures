@@ -15,54 +15,57 @@
 //     [11, 16, 15, 6],
 //     [10,  9,  8, 7]]
 
-function matrix(n) {
+function generateInput(n) {
     let matrix = [];
-    let element = null;
-    let rowIndex = 0;
-    let colIndex = 0;
-    let direction = 'leftToRight';
-    let moveSize = n - 1;
-    let nextLapRowIndex = 1;
-    let nextLapColIndex = 0;
-    const numElements = n * n;
-    
-    for (var i = 0; i < numElements; ++i) {
-        element = {value: i + 1, row: rowIndex, column: colIndex};
-        console.log(element.value);
-        matrix.push(element);
-
-        if (direction === 'leftToRight') {
-            colIndex ++;
-            if (colIndex === moveSize) {
-                direction = 'topToBottom';
-            }
-        } else if (direction === 'topToBottom') {
-            rowIndex++;
-            if (rowIndex === moveSize) {
-                direction = 'rightToLeft';
-            }
-        } else if (direction === 'rightToLeft') {
-            colIndex --;
-            if (colIndex === nextLapColIndex) {
-                direction = 'bottomToTop';
-                nextLapColIndex++;
-            }
-        } else if (direction === 'bottomToTop') {
-            if (rowIndex === nextLapRowIndex) {
-                direction = 'leftToRight';
-                nextLapRowIndex ++;
-                moveSize --;
-                colIndex ++;
-            } else {
-                rowIndex--;
-            }
+    let value = 0;
+    for (let row = 0; row < n; ++row) {
+        matrix.push([]);
+        for (let column = 0; column < n; ++column) {
+            matrix[row][column] = ++value;
         }
     }
-
-    console.log(matrix);
-
+    return matrix;
 }
 
-matrix(3);
+function matrix(size) {
+    let matrix = generateInput(size);
+    let spiral = [];
+    let n = matrix.length;
+    let startIndex = 0;
+    let offset = n;
+    for (let row = 0; row < n + 1; ++row) {
+        for (let column = row; column < n - (row + 1); ++column) {
+            spiral[startIndex] = matrix[row][column];
+            spiral[startIndex + offset - 1] = matrix[column][n - (row + 1)];
+            spiral[startIndex + 2 * offset - 2] = matrix[n - (row + 1)][(n - (column + 1))];
+            spiral[startIndex + 3 * offset - 3] = matrix[(n - (column + 1))][row];
+            ++startIndex;
+        }
+        offset-=2;
+        startIndex = spiral.length;
+    }
+    if (n % 2 === 1) {
+        const center = parseInt(n/2);
+        spiral.push(matrix[center][center]);
+    }
+    return spiral;
+}
+let size = 3;
+
+matrix(size);
+
+function print(arr) {
+    for (let row of arr) {
+        console.log(row.join(' '));
+    }
+    console.log('---------------');
+}
+
+function twoDimensional(arr, size) {
+    var res = []; 
+    for(var i=0;i < arr.length;i = i+size)
+    res.push(arr.slice(i,i+size));
+    return res;
+}
 
 module.exports = matrix;
