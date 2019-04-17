@@ -1,4 +1,0 @@
-// without options
-{
-    "plugins": ["transform-class-properties"]
-}
