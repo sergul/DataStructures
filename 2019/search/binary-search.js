@@ -1,22 +1,20 @@
-const startBinarySearch = (numList, targetNumber) => {
-  let min = 0;
-  let max = numList.length - 1;
-  let mid = Math.floor(max / 2);
-  let found = numList[mid];
-  while (found !== targetNumber) {
-    console.log(`Step- ${mid}`);
-    if (targetNumber > found) {
-      mid = Math.floor((mid + max) / 2);
-    } else if (targetNumber < found) {
-      mid = Math.floor((min + mid) / 2);
+const startBinarySearch = (array, targetValue) => {
+  var min = 0;
+  var max = array.length - 1;
+  while (max >= min) {
+    let guess = Math.floor((min + max) / 2);
+    let found = array[guess];
+    if (found === targetValue) {
+      return guess;
     }
-    found = numList[mid];
-    if (mid === 0 && found !== targetNumber) {
-      break;
+    if (targetValue > found) {
+      min = guess + 1;
+    } else {
+      max = guess - 1;
     }
   }
-  return numList[mid];
+  return -1;
 }
 
-let foundNumber = startBinarySearch([2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97], 4534543);
-console.log(foundNumber);
+let guessIndex = startBinarySearch([2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97], 2);
+console.log(guessIndex);
