@@ -4,8 +4,8 @@ const startBinarySearch = (array, targetValue) => {
   var guess = 0;
   var found = 0;
   while (max >= min) {
-    guess = Math.floor((min + max) / 2);
-    found = array[guess];
+    let guess = Math.floor((min + max) / 2);
+    let found = array[guess];
     if (found === targetValue) {
       return guess;
     }

@@ -8,7 +8,7 @@
       "type": "node",
       "request": "launch",
       "name": "Launch Program",
-      "program": "${workspaceFolder}\\async\\async.js"
+      "program": "${workspaceFolder}\\promise\\Promise.js"
     }
   ]
 }
