@@ -8,7 +8,7 @@
    "type": "node",
    "request": "launch",
    "name": "Launch Program",
-   "program": "${workspaceFolder}\\2019\\recursion\\traversal.js"
+   "program": "${workspaceFolder}\\2019\\iterable\\iterable.js"
   }
  ]
 }
