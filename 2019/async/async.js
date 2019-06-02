@@ -15,9 +15,4 @@ async function asyncCall() {
 
 //asyncCall();
 
-function lkjlk(addr) {
-  var reg = new RegExp("^[A-Z0-8]");
-  return reg.test(addr);
-}
-
-lkjlk('werwer');
+//var gen = generator(10);

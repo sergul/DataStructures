@@ -8,7 +8,7 @@
       "type": "node",
       "request": "launch",
       "name": "Launch Program",
-      "program": "${workspaceFolder}\\2019\\async\\async.js"
+      "program": "${workspaceFolder}\\2019\\linked-list\\index.js"
     }
   ]
 }
